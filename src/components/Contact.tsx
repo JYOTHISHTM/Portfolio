@@ -17,15 +17,28 @@ export default function Contact() {
       [e.target.name]: e.target.value
     });
   };
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setSubmitted(false);
-    }, 3000);
-  };
+  try {
+    const response = await fetch("https://formspree.io/f/xldvjoqw", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      setSubmitted(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    }
+  } catch (error) {
+    console.error("Form submit error:", error);
+  }
+};
+
 
   return (
     <section id="contact" className="py-24 bg-white text-black">
