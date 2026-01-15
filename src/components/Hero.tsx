@@ -97,12 +97,7 @@ export default function Hero() {
               </a>
             </div>
 
-
-
-
-
-
-            <div className="flex items-center gap-6 pt-4">
+            <div className="flex items-start gap-6 pt-4">
               {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/jyothish-t-m"
@@ -110,87 +105,76 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-slate-700 transition"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-5 h-5 shrink-0" />
                 <span className="font-medium">LinkedIn</span>
               </a>
 
-              <div className="space-y-4">
-                {/* EMAIL */}
-                <div className="relative inline-block">
-                  <div
-                    className="flex items-center space-x-2 cursor-pointer select-none"
-                    onClick={() => handleShow(setShowEmail)}
-                  >
-                    <Mail className="w-5 h-5" />
-                    <span className="font-medium">Email</span>
-                  </div>
-
-                  {showEmail && (
-                    <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 bg-white-700 text-black rounded px-3 py-2 shadow-xl whitespace-nowrap">
-                      <div className="flex items-center space-x-2">
-                        <a>
-                          {EMAIL}
-                        </a>
-
-                        {!copiedEmail ? (
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleCopy(EMAIL, setCopiedEmail);
-                            }}
-                            className="ml-2 px-2 py-1 bg-black rounded text-white text-xs"
-                          >
-                            Copy
-                          </button>
-                        ) : (
-                          <span className="ml-2 text-green-400 text-xs font-semibold">
-                            Copied!
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  )}
+              {/* EMAIL */}
+              <div className="relative inline-block">
+                <div
+                  className="flex items-center gap-2 cursor-pointer select-none text-slate-700"
+                  onClick={() => handleShow(setShowEmail)}
+                >
+                  <Mail className="w-5 h-5 shrink-0" />
+                  <span className="font-medium">Email</span>
                 </div>
-
-                {/* PHONE */}
-                <div className="relative inline-block">
-                  <div
-                    className="flex items-center space-x-5 cursor-pointer select-none"
-                    onClick={() => handleShow(setShowPhone)}
-                  >
-                    <Phone className="w-5 h-5" />
-                    <span className="font-medium">Phone</span>
-                  </div>
-
-                  {showPhone && (
-                    <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 bg-white-700 text-black rounded px-3 py-2 shadow-xl whitespace-nowrap">
-                      <div className="flex items-center space-x-2">
-                        <a>
-                          {PHONE}
-                        </a>
-
-                        {!copiedPhone ? (
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleCopy(PHONE, setCopiedPhone);
-                            }}
-                            className="ml-2 px-2 py-1 bg-black rounded text-white text-xs"
-                          >
-                            Copy
-                          </button>
-                        ) : (
-                          <span className="ml-2 text-green-400 text-xs font-semibold">
-                            Copied!
-                          </span>
-                        )}
-                      </div>
+                {showEmail && (
+                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 bg-white text-black rounded px-3 py-2 shadow-xl whitespace-nowrap">
+                    <div className="flex items-center space-x-2">
+                      <a>{EMAIL}</a>
+                      {!copiedEmail ? (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleCopy(EMAIL, setCopiedEmail);
+                          }}
+                          className="ml-2 px-2 py-1 bg-black rounded text-white text-xs"
+                        >
+                          Copy
+                        </button>
+                      ) : (
+                        <span className="ml-2 text-green-400 text-xs font-semibold">
+                          Copied!
+                        </span>
+                      )}
                     </div>
-                  )}
+                  </div>
+                )}
+              </div>
+
+              {/* PHONE */}
+              <div className="relative inline-block">
+                <div
+                  className="flex items-center gap-2 cursor-pointer select-none text-slate-700"
+                  onClick={() => handleShow(setShowPhone)}
+                >
+                  <Phone className="w-5 h-5 shrink-0" />
+                  <span className="font-medium">Phone</span>
                 </div>
+                {showPhone && (
+                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 bg-white text-black rounded px-3 py-2 shadow-xl whitespace-nowrap">
+                    <div className="flex items-center space-x-2">
+                      <a>{PHONE}</a>
+                      {!copiedPhone ? (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleCopy(PHONE, setCopiedPhone);
+                          }}
+                          className="ml-2 px-2 py-1 bg-black rounded text-white text-xs"
+                        >
+                          Copy
+                        </button>
+                      ) : (
+                        <span className="ml-2 text-green-400 text-xs font-semibold">
+                          Copied!
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
-
 
           </div>
 
@@ -211,7 +195,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-
 
         </div>
       </div>
