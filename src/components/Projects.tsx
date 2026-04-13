@@ -14,7 +14,9 @@ type Project = {
   tags: string[];
   showFeatures: boolean;
   features?: FeatureSection[];
+  image?: string
 };
+
 
 export default function Projects() {
   const [openProject, setOpenProject] = useState<number | null>(null);
@@ -28,7 +30,8 @@ export default function Projects() {
       desc: "Event Management : A platform to book and list events",
       link: "https://festivia.jothish.online/",
       source: "https://github.com/JYOTHISHTM/festivia-frontend",
-      tags: ["React", "TypeScript", "Tailwind", "Nodejs", "Express"],
+      image: "https://res.cloudinary.com/drha2z2qr/image/upload/v1776074397/Screenshot_2026-04-13_152846_rasqwv.png",
+      tags: ["React", "TypeScript", "Tailwind", "Nodejs", "Express", "MongoDB"],
       showFeatures: true,
       features: [
         {
@@ -76,6 +79,110 @@ export default function Projects() {
       ],
     },
     {
+      title: "FoodScanner",
+      desc: "Scan barcodes to get personalized food health insights.",
+      link: "https://foodscanner.jothish.online/",
+      source: "https://github.com/JYOTHISHTM/foodscanner-frontend",
+      image:"https://res.cloudinary.com/drha2z2qr/image/upload/v1776074928/Screenshot_2026-04-13_153835_xaopip.png",
+      tags: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
+      showFeatures: true,
+      features: [
+        {
+          title: "Admin Panel",
+          items: [
+            "User management (view, block/unblock users)",
+          ],
+        },
+        {
+          title: "User Features",
+          items: [
+            "Authentication (signup, login, OTP verification)",
+            "Scan barcode using camera or enter manually",
+            "Personalized results based on profile and allergies",
+            "View scan history and manage favorites",
+            "User profile management",
+          ],
+        },
+        {
+          title: "Core Functionality",
+          items: [
+            "Fetch product data using barcode",
+            "Analyze ingredients and generate safety score",
+            "Highlight allergens and health risks",
+          ],
+        },
+        {
+          title: "Tech Stack",
+          items: [
+            "Backend: Node.js, Express, TypeScript, MongoDB",
+            "Frontend: Vite + React, Tailwind CSS",
+          ],
+        },
+        {
+          title: "Additional Services",
+          items: [
+            "Cloudinary for image/media handling",
+            "Nodemailer for email notifications",
+          ],
+        },
+      ],
+    },
+    {
+      title: "AUTH APP",
+      desc: "User authentication system with admin controls",
+      link: "https://authapp.jothish.online",
+      source: "https://github.com/JYOTHISHTM/AuthApp",
+      image:"https://res.cloudinary.com/drha2z2qr/image/upload/v1776076234/Screenshot_2026-04-13_160007_udyvln.png",
+      tags: ["Node.js", "Express JS", "JWT", "MongoDB"],
+      showFeatures: true,
+      features: [
+        {
+          title: "Admin Panel",
+          items: [
+            "Admin login (env credentials)",
+            "View all users",
+            "Block/Unblock users",
+            "Force logout blocked users",
+          ],
+        },
+        {
+          title: "Users",
+          items: [
+            "Clean EJS UI",
+            "JWT-based auth",
+            "Protected routes",
+            "Signup/Login",
+            "Auto logout when blocked",
+          ],
+        },
+      ],
+    },
+
+    {
+      title: "QUOTES GENERATOR",
+      desc: "Generate instant quotes websites",
+      link: "https://quotes.jothish.online/",
+      source: "https://github.com/JYOTHISHTM/QuoteApp",
+      image:"https://res.cloudinary.com/drha2z2qr/image/upload/v1776076186/Screenshot_2026-04-13_155931_m23jui.png",
+      tags: ["React", "Tailwind", "TS", "CSS", "HTML", "JS"],
+      showFeatures: true,
+      features: [
+        {
+          title: "Features",
+          items: [
+            "Retrieves a new quote from an API with a single click.",
+            "Includes loading animation (bouncing dots) while fetching.",
+            "Neon glow border trails using CSS animations.",
+            "Smooth hover effects on buttons and container",
+            "Takes a screenshot of the quote box using html2canvas.",
+            "Download as image",
+            "Displays error messages if API fails."
+          ],
+        },
+
+      ],
+    },
+     {
       title: "FOXHUB",
       desc: "ECOMMERCE : place to purchase dress",
       link: "https://your-ecommerce-link.com",
@@ -133,61 +240,6 @@ export default function Projects() {
         },
       ],
     },
-    {
-      title: "AUTH APP",
-      desc: "User authentication system with admin controls",
-      link: "https://authapp.jothish.online",
-      source: "https://github.com/JYOTHISHTM/AuthApp",
-      tags: ["Node.js", "Express JS", "JWT", "MongoDB"],
-      showFeatures: true,
-      features: [
-        {
-          title: "Admin Panel",
-          items: [
-            "Admin login (env credentials)",
-            "View all users",
-            "Block/Unblock users",
-            "Force logout blocked users",
-          ],
-        },
-        {
-          title: "Users",
-          items: [
-            "Clean EJS UI",
-            "JWT-based auth",
-            "Protected routes",
-            "Signup/Login",
-            "Auto logout when blocked",
-          ],
-        },
-      ],
-    },
-
-    //  ADDITIONAL  PROJECTS
-    {
-      title: "QUOTES GENERATOR",
-      desc: "Generate instant quotes websites",
-      link: "https://quotes.jothish.online/",
-      source: "https://github.com/JYOTHISHTM/QuoteApp",
-      tags: ["React", "Tailwind", "TS", "CSS", "HTML", "JS"],
-      showFeatures: true,
-      features: [
-        {
-          title: "Features",
-          items: [
-            "Retrieves a new quote from an API with a single click.",
-            "Includes loading animation (bouncing dots) while fetching.",
-            "Neon glow border trails using CSS animations.",
-            "Smooth hover effects on buttons and container",
-            "Takes a screenshot of the quote box using html2canvas.",
-            "Download as image",
-            "Displays error messages if API fails."
-          ],
-        },
-       
-      ],
-    },
-
   ];
 
   const visibleProjects = showAll ? projects : projects.slice(0, 4);
@@ -210,8 +262,20 @@ export default function Projects() {
           {visibleProjects.map((p, i) => (
             <div
               key={i}
-              className="group flex flex-col bg-white rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-slate-300"
+              className="group flex flex-col bg-white rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-slate-300 overflow-hidden"
             >
+              {/* ⭐ ADD IMAGE HERE */}
+              {p.image && (
+                <div className="w-full h-48 overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              )}
+
+              {/* EXISTING CONTENT */}
               <div className="p-8 flex flex-col flex-grow">
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-2xl font-bold text-slate-900">
