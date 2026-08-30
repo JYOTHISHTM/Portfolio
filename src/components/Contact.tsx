@@ -66,7 +66,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                 <div className="flex-grow">
                   <p className="text-sm text-black mb-1">Email</p>
                   <p className="text-lg font-semibold group-hover:text-black transition-colors">
-                    jothishtm2002@gmail.com
+                    jothishtm.dev@gmail.com
                   </p>
                 </div>
               </a>

@@ -28,7 +28,7 @@ export default function Projects() {
     {
       title: "FESTIVIA",
       desc: "Event Management : A platform to book and list events",
-      link: "https://festivia.jothish.online/",
+      link: "https://festivia-event-management.vercel.app",
       source: "https://github.com/JYOTHISHTM/festivia-frontend",
       image: "https://res.cloudinary.com/drha2z2qr/image/upload/v1776074397/Screenshot_2026-04-13_152846_rasqwv.png",
       tags: ["React", "TypeScript", "Tailwind", "Nodejs", "Express", "MongoDB"],

@@ -16,7 +16,7 @@ export default function Hero() {
   }, []);
 
 
-  const EMAIL = "jothishtm2002@gmail.com";
+  const EMAIL = "jothishtm.dev@gmail.com";
   const PHONE = "8590020234";
 
   const [showEmail, setShowEmail] = useState(false);
